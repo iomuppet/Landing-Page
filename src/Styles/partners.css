@@ -1,5 +1,6 @@
 #credito {
     display: flex;
+    box-sizing: border-box;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -20,9 +21,58 @@
     align-items: center;
     border-radius: 20px;
     gap: 18px;
-    width: 25%;
     padding: 20px;
     background-color: rgb(255, 255, 255);
     box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
 }
 
+@keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .partners {
+    overflow: hidden;
+    padding: 60px 0;
+    background: white;
+    white-space: nowrap;
+    position: relative;
+  }
+  
+  .partners:before,
+  .partners:after {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    content: "";
+    z-index: 2;
+  }
+  
+  .partners:before {
+    left: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+  }
+  
+  .partners:after {
+    right: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+  }
+  
+  .partners:hover .partner {
+    animation-play-state: paused;
+  }
+  
+  .partner {
+    display: inline-block;
+    animation: 35s slide infinite linear;
+  }
+  
+  .partner img {
+    height: 100px;
+    margin: 0 40px;
+  }
